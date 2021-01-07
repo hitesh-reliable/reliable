@@ -1,0 +1,29 @@
+poll Detail
+id      poll_name       poll_description        poll_timing(date-time)      status         created_at          updated_at
+
+
+Poll Options
+id      poll_id         poll_option(Text)           created_at          updated_at
+
+
+
+Poll Answer
+id      poll_id         option_id           user_id         created_at          updated_at
+
+
+Api Doc
+https://documenter.getpostman.com/view/10419314/TVzNJztE
+
+Requirement : MySql, PHP ^7.3, Laravel v8
+
+Project Setup
+-> Take clone of the project from this url:
+-> Go to project folder and run : composer install
+-> Create database on your system.
+-> Go to project folder enter database name, username and password in .env file
+    Note : If you are on windows system you must enable display file extension in system to check this(.env) file.
+-> Open terminal and go to project folder then run migrate command to create the tables in the database.
+    Command: php artisan migrate
+
+Note: If you are on ubuntu system you must grand full permission(777) to `storage folder` in project folder.
+
