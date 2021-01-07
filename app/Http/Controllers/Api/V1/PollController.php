@@ -84,6 +84,10 @@ class PollController extends ApiController {
 
     public function pollVoting(PollVoting $request) {
         $input = request()->all();
+        $checkPoll = $this->getPollDetailById($input['pollId']);
+        if($checkPoll['status'] == PollDetail::pollStatus()[PollDetail::StatusCompleted]){
+            return $this->jsonResponse(false, 422, 'Not an ongoing poll.');
+        }
         $getPollAnswer = PollOption::where(['pollId' => $input['pollId'], 'id' => $input['optionId']])->first();
         if (!$getPollAnswer) {
             return $this->jsonResponse(false, 422, 'Invalid Input data.');
